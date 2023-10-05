@@ -1,0 +1,75 @@
+
+/*modificacion Nav*/
+.navbar .nav-link {
+    color: white !important;
+}
+
+.navbar .navbar-brand {
+    color: blueviolet;
+    font-weight: bold;
+}
+
+#rayitas {
+    border: 1px solid blueviolet !important;
+}
+
+#notas img {
+    width: 200%;
+    height: 100%;
+}
+
+#lugar {
+    color: green !important;
+}
+
+#carouselExampleCaptions img{
+    height: 500px;
+ }
+
+.card-group img {
+    width: 100%;
+    height: 250px;
+}
+.card:hover {
+    box-shadow: 0 0 15px lightgray;
+}
+
+#tecn img {
+    width: 100%;
+}
+
+.conta1 {
+    width: 100%;
+    text-align: center;
+}
+
+.conta4 {
+    font-size: smaller !important;
+}
+
+h2 {
+    width: 100%;
+    text-align: center;
+    color: blueviolet;
+    font-weight: bolder;
+}
+
+u {
+    text-decoration: underline dashed ;
+}
+
+footer {
+    background-color: black;
+    padding: 20px;
+    text-align: center;
+  }
+
+ .footer-gradient a {
+    margin: 5px;
+    color: white;
+  }
+
+  .footer-gradient {
+    background: linear-gradient(to right, rgb(37, 16, 37), blueviolet);
+    color: white;
+  }

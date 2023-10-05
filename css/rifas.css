@@ -1,0 +1,28 @@
+
+/*modificacion Nav*/
+.navbar .nav-link {
+    color: white !important;
+}
+
+.navbar .navbar-brand {
+    color: blueviolet;
+    font-weight: bold;
+}
+
+#rayitas {
+    border: 1px solid blueviolet !important;
+}
+
+#notas img {
+    width: 200%;
+    height: 100%;
+}
+
+#lugar {
+    color: green !important;
+}
+
+
+#logoCoope img {
+    height: 300px;
+}
