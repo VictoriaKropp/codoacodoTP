@@ -39,13 +39,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.html#sumar">Sumate</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html#coope">Cooperadora</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html#reser" id="lugar">Reservas</a>
-                    </li>
-                </ul>
+                    </ul>
             </div>
         </div>
     </nav>
@@ -61,7 +55,7 @@
             <div class="text-center m-1 fs-5 fw-bolder">
                 Cooperadora
             </div>
-            <div class="text-center m-1 mb-3">
+            <div class="text-center m-1 mb-5">
                 <p class="card-text">Un grupo de mamás y papás de los músicos de la orquesta nos unimos para formar una
                     cooperativa con el fin de dar una mano en todo lo que sea necesario.</p>
                 <p class="card-text">En este momento organizamos una rifa para recaudar fondos cubrir diferentes clases
@@ -74,60 +68,65 @@
 
         </div>
     </div>
-    
+
     <!-- formulario comprar ticket -->
-    <div class="container my-3">
-        <form action="../server/procesarCompTicket.html" method="post" class="needs-validation" novalidate>
-            <div class="row">
-                <div class="col-md mb-3">
-                    <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" required>
-                    <div class="invalid-feedback">
-                        Debe ingresar su nombre
+    <div class="compra">
+        <div class="text-center m-1 fs-5 fw-bolder mt-5">
+            Comprar rifas
+        </div>
+        <div class="container my-3">
+            <form action="../server/procesarCompTicket.html" method="post" class="needs-validation" novalidate>
+                <div class="row">
+                    <div class="col-md mb-3">
+                        <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Debe ingresar su nombre
+                        </div>
+                    </div>
+                    <div class="col-md mb-3">
+                        <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="form-control"
+                            required>
+                        <div class="invalid-feedback">
+                            Debe ingresar su apellido
+                        </div>
                     </div>
                 </div>
-                <div class="col-md mb-3">
-                    <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="form-control"
-                        required>
-                    <div class="invalid-feedback">
-                        Debe ingresar su apellido
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="small">
-                    Las rifas se venden en 2x1, comprando 1 te llevas 2 números
-                </div>
-                <div class="col-md mb-3">
-                    <input type="number" name="cant" id="cant" onchange="calcTotal()" onkeyup="calcTotal()"
-                        placeholder="Cantidad de pares de Rifas" class="form-control" required>
-                    <div class="invalid-feedback">
-                        Debe ingresar una cantidad
-                    </div>
+                <div class="row mb-3">
                     <div class="small">
-                        Valor: $500
+                        Las rifas se venden en 2x1, comprando 1 te llevas 2 números
+                    </div>
+                    <div class="col-md mb-3">
+                        <input type="number" name="cant" id="cant" onchange="calcTotal()" onkeyup="calcTotal()"
+                            placeholder="Cantidad de pares de Rifas" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Debe ingresar una cantidad
+                        </div>
+                        <div class="small">
+                            Valor: $500
+                        </div>
+                    </div>
+                    <div class="col-md mb-3">
+                        <select class="form-select" id="desc" onchange="calcTotal()">
+                            <option value="0">Público en general</option>
+                            <option value="50">Músico 50%</option>
+                            <option value="30">Profe 30%</option>
+                            <option value="10">Familiar 10%</option>
+                        </select>
                     </div>
                 </div>
-                <div class="col-md mb-3">
-                    <select class="form-select" id="desc" onchange="calcTotal()">
-                        <option value="0">Público en general</option>
-                        <option value="50">Músico 50%</option>
-                        <option value="30">Profe 30%</option>
-                        <option value="10">Familiar 10%</option>                        
-                    </select>
+                <div class="row border border-2 border-success mb-3 rounded">
+                    <div class="col mb-3 ">
+                        Total a pagar $: <span id="total">0</span>
+                    </div>
+
                 </div>
-            </div>
-            <div class="row bg-info mb-3">
-                <div class="col mb-3 ">
-                    Total a pagar $: <span id="total">0</span>
+                <div class="row mb-3">
+                    <input type="submit" value="Comprar" class="btn btn-primary">
                 </div>
 
-            </div>
-            <div class="row mb-3">
-                <input type="submit" value="Comprar" class="btn btn-primary">
-            </div>
 
-
-        </form>
+            </form>
+        </div>
     </div>
 
 
