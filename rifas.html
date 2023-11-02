@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="css/rifas.css">
+    <link rel="icon" sizes="16x16" type="image/png" href="img/coope.jpg" />
 </head>
 
 <body>
@@ -39,7 +40,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.html#sumar">Sumate</a>
                     </li>
-                    </ul>
+                </ul>
             </div>
         </div>
     </nav>
@@ -69,65 +70,135 @@
         </div>
     </div>
 
-    <!-- formulario comprar ticket -->
-    <div class="compra">
-        <div class="text-center m-1 fs-5 fw-bolder mt-5">
-            Comprar rifas
+    <!-- inicio de los registros de compra -->
+    <div class="container p-3 formulario-section">
+        <div class="container my-5">
+            <div class="row mb-3">
+                <h1 class="comprar-tikets fs-1">Compra tus rifas desde cualquier dispositivo</h1>
+                <div class="text-black fw-bold m-3">
+                    <h5 class="comprar-tikets fs-5">Las rifas son en promo modalidad 2x1</h5>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-4 m-2" style="width: 25rem;" id="general-card">
+                                <div class="card-body" onclick="sel('general')" data-discount="10">
+                                    <h5 class="card-title text-danger fw-bold mb-3 mt-2">Generales, descuento 10%</h5>
+                                    <p class="card-text">Cualquier persona Particular que desee comprar 1 o más rifas
+                                        obtendrá un 10% de descuento en el total de su compra.</p>
+                                </div>
+                            </div>
+                            <div class="col-4 m-2" style="width: 25rem;" id="familiar-card">
+                                <div class="card-body" onclick="sel('familiar')">
+                                    <h5 class="card-title text-success fw-bold mb-3 mt-2">Familias, descuento 20%</h5>
+                                    <p class="card-text">Los Familiares de los músicos que deseen comprar sus rifas y
+                                        ayuden en la venta tendrán una bonificación del 20% al final de su compra.</p>
+                                </div>
+                            </div>
+                            <div class="col-4 m-2" style="width: 25rem;" id="profes-card">
+                                <div class="card-body" onclick="sel('profes')">
+                                    <h5 class="card-title text-primary fw-bold mb-3 mt-2">Profes, descuento 30%</h5>
+                                    <p class="card-text">Los Profes de nuestros espectaculares músicos contarán con la
+                                        fabulosa obtención de un 30% de descuento (por bancarse a nuestros pibitos).</p>
+                                </div>
+                            </div>
+                            <div class="col-4 m-2" style="width: 25rem;" id="musicos-card">
+                                <div class="card-body" onclick="sel('musicos')">
+                                    <h5 class="card-title text-info fw-bold mb-3 mt-2">Musicos: 50% Off</h5>
+                                    <p class="card-text">Nuestros maravillosos músicos pagarán sólo la mitad del valor
+                                        de las rifas (sobre todo porque nosotros tendremos que poner el dinero).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-2">
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" required>
+                </div>
+                <div class="col-md-4 mb-2">
+                    <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="form-control"
+                        required>
+                </div>
+                <div class="col-md-4 mb-2">
+                    <input type="email" name="email" id="email" placeholder="Email" class="form-control" required>
+                </div>
+            </div>
         </div>
-        <div class="container my-3">
-            <form action="../server/procesarCompTicket.html" method="post" class="needs-validation" novalidate>
-                <div class="row">
-                    <div class="col-md mb-3">
-                        <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" required>
-                        <div class="invalid-feedback">
-                            Debe ingresar su nombre
-                        </div>
+        <form action="Server/procesarCompraTicket.html" method="post" onsubmit="return false;" id="buying">
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <input type="number" name="cant" id="cant" oninput="calcTotal()" placeholder="Cantidad de tickets"
+                        class="form-control">
+                    <div class="small text-black">
+                        Valor por unidad <span class="fw-bold fs-5 text-black">$500</span>
                     </div>
-                    <div class="col-md mb-3">
-                        <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="form-control"
-                            required>
-                        <div class="invalid-feedback">
-                            Debe ingresar su apellido
-                        </div>
+                    <div class="col-md-4 fst-italic text-center" id="neto">
+                        Total sin descuento $ <span id="total-sin-descuento">0.00</span>
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <div class="small">
-                        Las rifas se venden en 2x1, comprando 1 te llevas 2 números
-                    </div>
-                    <div class="col-md mb-3">
-                        <input type="number" name="cant" id="cant" onchange="calcTotal()" onkeyup="calcTotal()"
-                            placeholder="Cantidad de pares de Rifas" class="form-control" required>
-                        <div class="invalid-feedback">
-                            Debe ingresar una cantidad
-                        </div>
-                        <div class="small">
-                            Valor: $500
-                        </div>
-                    </div>
-                    <div class="col-md mb-3">
-                        <select class="form-select" id="desc" onchange="calcTotal()">
-                            <option value="0">Público en general</option>
-                            <option value="50">Músico 50%</option>
-                            <option value="30">Profe 30%</option>
-                            <option value="10">Familiar 10%</option>
-                        </select>
-                    </div>
+                <div class="col-md-4">
+                    <select id="tipoUsuario" onchange="calcTotal()" class="form-control">
+                        <option value="general">Generales</option>
+                        <option value="familiar">Familiares</option>
+                        <option value="profes">Profesores</option>
+                        <option value="musicos">Músicos</option>
+                    </select>
                 </div>
-                <div class="row border border-2 border-success mb-3 rounded">
-                    <div class="col mb-3 ">
-                        Total a pagar $: <span id="total">0</span>
-                    </div>
-
+                <div class="col-md-4 fw-bold fs-5 text-center">
+                    Total a pagar $ <span id="total-a-pagar">0.00</span>
                 </div>
-                <div class="row mb-3">
-                    <input type="submit" value="Comprar" class="btn btn-primary">
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6 text-end">
+                    <button class="btn custom-btn-width fw-bold custom-btn-motion boton-realizar-otra-compra"
+            onclick="habilitarCampos()" id="btn-limp">Limpiar</button>
+    
+                    <button type="button" class="btn custom-btn-width fw-bold custom-btn-motion boton-verificar"
+                        onclick="verificarDatos()" id="boton-verificar"> Comprobar compra </button>
                 </div>
-
-
-            </form>
-        </div>
+            </div>
     </div>
+    </form>
+    <div class="text-center mt-4 animate__animated animate__fadeIn" id="confirmacion-datos" style="display: none;">
+        <h3>Confirmación de Datos:</h3>
+        <p><strong>Nombre:</strong> <span id="nombre-ingresado"></span></p>
+        <p><strong>Apellido:</strong> <span id="apellido-ingresado"></span></p>
+        <p><strong>Email:</strong> <span id="email-ingresado"></span></p>
+        <p><strong>Cantidad de Rifas:</strong> <span id="cant-ingresada"></span></p>
+        <p><strong>Tipo de Usuario:</strong> <span id="tipoUsuario-ingresado"></span></p>
+        <p><strong>Total a Pagar:</strong> $<span id="total-ingresado">0.00</span></p>
+    </div>
+    </div>
+    </div>
+    <div class="text-center mt-4 animate__animated animate__fadeIn" id="botones-confirmar-limpiar"
+        style="display: none;">
+        <button class="btn custom-btn-width fw-bold custom-btn-motion boton-confirmar-compra"
+            onclick="confirmarCompra()" id="btn-confComp">Confirmar</button>
+        </div>
+    <!-- fin de los registros de compra -->
+    <!-- Footer -->
+    <footer class="footer-gradient py-4 mt-4">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                    <a href="#">Preguntas frecuentes</a>
+                </div>
+                <div class="col">
+                    <a href="#">Contáctanos</a>
+                </div>
+                <div class="col">
+                    <a href="#">Cooperadora</a>
+                </div>
+                <div class="col">
+                    <a href="#">Términos y condiciones</a>
+                </div>
+                <div class="col">
+                    <a href="#">Privacidad</a>
+                </div>
+                <div class="col">
+                    <a href="#">Estudiantes</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

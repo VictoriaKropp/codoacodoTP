@@ -1,4 +1,3 @@
-
 /*modificacion Nav*/
 .navbar .nav-link {
     color: white !important;
@@ -25,4 +24,93 @@
 
 #logoCoope img {
     height: 300px;
+}
+
+#general-card {
+    border-style: groove;
+    border-color: #027fe9;
+    border-width: 1px;
+    margin-left: 10px;
+    height: 200px;
+    width: 250px;
+}
+
+#general-card:hover {
+    box-shadow: 0 0 15px #fe23d9;
+    ;
+}
+
+#familiar-card {
+    border-style: groove;
+    border-color: #40c0cb;
+    border-width: 1px;
+    margin-left: 10px;
+    height: 200px;
+    width: 250px;
+}
+
+#familiar-card:hover {
+    box-shadow: 0 0 15px yellow;
+}
+
+#profes-card {
+    border-style: groove;
+    border-color: #fecd23;
+    border-width: 1px;
+    margin-left: 10px;
+    height: 200px;
+    width: 250px;
+}
+
+#profes-card:hover {
+    box-shadow: 0 0 15px green;
+}
+
+#musicos-card {
+    border-style: groove;
+    border-color: #fe23d9;
+    border-width: 1px;
+    margin-left: 10px;
+    height: 200px;
+    width: 250px;
+}
+
+#musicos-card:hover {
+    box-shadow: 0 0 15px blue;
+}
+
+#neto {
+    font-size: .8rem !important;
+    color: black;
+}
+
+#btn-limp {
+    background-color: rgb(75, 30, 75);
+    color: white;
+}
+
+#boton-verificar {
+    background-color: blueviolet;
+    color: white;
+}
+
+#btn-confComp {
+    background: linear-gradient(to right, rgb(37, 16, 37), blueviolet);
+    color: white;
+}
+
+footer {
+    background-color: black;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-gradient a {
+    margin: 5px;
+    color: white;
+}
+
+.footer-gradient {
+    background: linear-gradient(to right, rgb(37, 16, 37), blueviolet);
+    color: white;
 }
